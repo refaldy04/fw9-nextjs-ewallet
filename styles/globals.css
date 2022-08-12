@@ -3,6 +3,8 @@ body {
   padding: 0;
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  overflow-x: hidden;
+  height: 100%;
 }
 
 a {
@@ -74,7 +76,64 @@ a {
   background-color: #0a476d;
 }
 
-@media (prefers-color-scheme: dark) {
+/*START MAIN STYLE */
+.pages {
+  padding: 40px 150px;
+}
+
+.fw9-menu-list {
+  min-height: 678px;
+  text-decoration: none;
+  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.05);
+  border-radius: 25px;
+  padding: 40px;
+}
+
+.fw9-menu {
+  font-weight: 400;
+  font-size: 18px;
+}
+
+footer {
+  padding: 40px 150px;
+}
+/*END MAIN STYLE */
+
+/* START DASHBOARD STYLE  */
+.fw9-dashboard {
+  height: 100%;
+  /* display: flex; */
+}
+
+.fw9-balance {
+  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.05);
+  padding: 30px;
+  border-radius: 20px;
+}
+
+.fw9-container-digram {
+  height: 100%;
+}
+
+.fw9-diagram {
+  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.05);
+  border-radius: 25px;
+  padding: 40px;
+  min-height: fit-content;
+}
+
+.fw9-transaction-history {
+  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.05);
+  border-radius: 25px;
+  padding: 30px;
+}
+
+.fw9-main {
+  width: 100%;
+}
+/* END DASHBOARD STYLE  */
+
+@media only screen and (max-width: 768px) {
   html {
     color-scheme: dark;
   }
@@ -84,5 +143,13 @@ a {
   }
   .fw-form {
     padding: 30px 100px;
+  }
+
+  .pages {
+    padding: 40px 20px;
+  }
+
+  footer {
+    padding: 40px 20px;
   }
 }
