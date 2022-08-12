@@ -22,7 +22,7 @@ export default function MainLayout(props) {
 
   const onLogout = () => {
     Cookies.remove('token');
-    // router.push('/login');
+    router.push('/login');
   };
 
   return (
@@ -49,9 +49,9 @@ export default function MainLayout(props) {
             </Link>
           </div>
           <div>
-            <Link onClick={onLogout} href="/login" className="d-flex gap-4">
+            <button onClick={onLogout} className="d-flex gap-4">
               <p className="fw9-menu">Log Out</p>
-            </Link>
+            </button>
           </div>
         </div>
         <main className="col-lg-10">{props.children}</main>

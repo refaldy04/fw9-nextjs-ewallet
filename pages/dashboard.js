@@ -13,10 +13,10 @@ export default function Dashboard() {
             <p className="text-dark">082</p>
           </div>
           <div className="d-flex flex-column gap-3">
-            <button type="button" className="btn  fw9-transaction">
+            <button type="button" className="btn btn-dark text-light fw9-transaction">
               <i data-feather="arrow-up" className="fw9-menu"></i> Transfer
             </button>
-            <button type="button" className="btn fw9-transaction">
+            <button type="button" className="btn btn-dark text-light fw9-transaction">
               <i data-feather="plus" className="fw9-menu"></i> Top Up
             </button>
           </div>
@@ -42,7 +42,9 @@ export default function Dashboard() {
           <div className="d-flex flex-column col-lg-5 rounded fw9-transaction-history">
             <div className="d-flex flex-row justify-content-between">
               <p>Transaction History</p>
-              <Link href="/history">See all</Link>
+              <Link href="/history" className="text-dark">
+                See all
+              </Link>
             </div>
 
             {/* <Card /> */}
