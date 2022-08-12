@@ -22,13 +22,14 @@ export default function MainLayout(props) {
 
   const onLogout = () => {
     Cookies.remove('token');
+    Cookies.remove('id');
     router.push('/login');
   };
 
   return (
     <>
       <Head>
-        <title>{props.title ? props.title : 'FazzPay'}</title>
+        <title>{props.title ? props.title : 'Reewallet'}</title>
       </Head>
       <Navbar />
       <DropdownMenu />
@@ -49,7 +50,7 @@ export default function MainLayout(props) {
             </Link>
           </div>
           <div>
-            <button onClick={onLogout} className="d-flex gap-4">
+            <button onClick={onLogout} className="d-flex gap-4 button-fw9">
               <p className="fw9-menu">Log Out</p>
             </button>
           </div>

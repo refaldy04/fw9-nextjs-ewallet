@@ -16,6 +16,12 @@ a {
   box-sizing: border-box;
 }
 
+.button-fw9 {
+  cursor: pointer;
+  border: unset;
+  background-color: transparent;
+}
+
 .intro {
   background-image: url('/bg-intro.png');
   padding: 30px 100px 30px;
@@ -24,6 +30,13 @@ a {
 .fw-motto {
   font-size: 24px;
   font-weight: 700;
+}
+
+.fw9-profile-pict {
+  width: 52px;
+  height: 52px;
+  border-radius: 10px;
+  object-fit: cover;
 }
 
 .fw-form {

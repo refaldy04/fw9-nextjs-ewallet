@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Auth from '../components/Auth';
 import axios from '../helpers/axios';
 import { useRouter } from 'next/router';
+import Cookies from 'js-cookie';
 
 export default function Register() {
   const [form, setForm] = useState({ first: '', sec: '', third: '', fourth: '', fifth: '', sixth: '' });
@@ -14,15 +15,19 @@ export default function Register() {
 
   const handleSubmit = async () => {
     try {
-      console.log(Object.values(form).join(''));
-      //   const result = await axios.post('auth/register', form);
-      //   console.log(result);
-      //   if (result.status === 200) {
-      //     console.log('ahoy');
-      //     router.push('/login');
-      //   } else {
-      //     console.log(result);
-      //   }
+      const data = { pin: Object.values(form).join('') };
+      const id = Cookies.get('id');
+      console.log(data);
+
+      const result = await axios.patch(`user/pin/${id}`, data);
+      console.log(result);
+      if (result.status === 200) {
+        console.log('ahoy');
+        router.push('/dashboard');
+      } else {
+        console.log('ayayay');
+        console.log(result);
+      }
     } catch (error) {
       console.log(error);
     }
