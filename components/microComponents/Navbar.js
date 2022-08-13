@@ -3,6 +3,7 @@ import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import axios from '../../helpers/axios';
+import Cookies from 'js-cookie';
 
 export default function NavbarMenu() {
   const [data, setData] = useState([]);
@@ -13,7 +14,8 @@ export default function NavbarMenu() {
 
   const getDataUser = async () => {
     try {
-      const result = await axios.get('user/profile/5c986d7e-5ce4-44ad-81f3-dbad82a560a7');
+      const user = Cookies.get('id');
+      const result = await axios.get(`user/profile/${user}`);
       setData(result.data.data);
       // console.log(result);
     } catch (error) {

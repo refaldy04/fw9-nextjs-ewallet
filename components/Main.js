@@ -55,7 +55,7 @@ export default function MainLayout(props) {
             </button>
           </div>
         </div>
-        <main className="col-lg-10">{props.children}</main>
+        <main className="col-lg-10 d-flex align-items-stretch">{props.children}</main>
       </div>
       <Footer />
     </>

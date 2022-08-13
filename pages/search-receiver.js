@@ -5,11 +5,13 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import InputGroup from 'react-bootstrap/InputGroup';
 import axios from '../helpers/axios';
-import Link from 'next/link';
+import Cookies from 'js-cookie';
+import { useRouter } from 'next/router';
 
 export default function Transfer() {
   const [data, setData] = useState([]);
   const [form, setForm] = useState({ keyword: '' });
+  
 
   const handleChangeText = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
@@ -29,6 +31,8 @@ export default function Transfer() {
   useEffect(() => {
     getDataUser();
   }, []);
+
+  const router = useRouter();
 
   const getDataUser = async () => {
     try {
@@ -54,7 +58,14 @@ export default function Transfer() {
 
           <div className="d-flex flex-column gap-5 mt-4 mt-xl-0">
             {data.map((user) => (
-              <button href="/input-amount" key={user.id} className="button-fw9 d-flex align-items-start justify-content-between flex-column flex-xl-row">
+              <button
+                key={user.id}
+                className="button-fw9 d-flex align-items-start justify-content-between flex-column flex-xl-row"
+                onClick={() => {
+                  Cookies.set('recipientID', user.id);
+                  router.push('/input-amount');
+                }}
+              >
                 <div className="d-flex align-items-start gap-2 user text-dark">
                   <img src={user.image ? `https://res.cloudinary.com/dd1uwz8eu/image/upload/v1659549135/${user.image}` : '/user-default.jpg'} alt="Samuel" className="img-fluid fw9-profile-pict" />
                   <div className="d-flex flex-column justify-content-between text-start">
