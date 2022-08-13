@@ -6,7 +6,6 @@ import axios from '../../helpers/axios';
 
 export default function NavbarMenu() {
   const [data, setData] = useState([]);
-  const [page, setPage] = useState(1);
 
   useEffect(() => {
     getDataUser();
@@ -16,13 +15,11 @@ export default function NavbarMenu() {
     try {
       const result = await axios.get('user/profile/5c986d7e-5ce4-44ad-81f3-dbad82a560a7');
       setData(result.data.data);
-      console.log(result);
+      // console.log(result);
     } catch (error) {
       console.log(error);
     }
   };
-
-  // console.log(data);
 
   return (
     <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
@@ -33,12 +30,12 @@ export default function NavbarMenu() {
           <Nav className="me-auto"></Nav>
           <Nav>
             <div className="d-flex gap-3 align-items-start justify-content-lg-end mt-3">
-              <img src={`https://res.cloudinary.com/dd1uwz8eu/image/upload/v1659549135/${data.image}`} className="fw9-profile-pict" alt="profile" />
+              <img src={data.image ? `https://res.cloudinary.com/dd1uwz8eu/image/upload/v1659549135/${data.image}` : '/user-default.jpg'} className="fw9-profile-pict" alt="profile" />
               <div className="d-flex flex-column justify-content-end">
                 <p className="fw9-name-user text-light mb-0 pb-0">{`${data.firstName} ${data.lastName}`}</p>
-                <p className="text-light">+62 8139 3877 7946</p>
+                <p className="text-light">{data.noTelp}</p>
               </div>
-              <div className="d-flex fw9-bell">
+              <div className="d-flex">
                 <i data-feather="bell"></i>
               </div>
             </div>

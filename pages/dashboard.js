@@ -1,9 +1,27 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import MainLayout from '../components/Main';
 import Link from 'next/link';
 import { SSRProvider } from 'react-bootstrap';
+import axios from '../helpers/axios';
 
 export default function Dashboard() {
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    getDataUser();
+  }, []);
+
+  const getDataUser = async () => {
+    try {
+      const user = Cookies.get('id');
+      const result = await axios.get(`user/profile/${user}`);
+      setData(result.data.data);
+      console.log(result);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return (
     <SSRProvider>
       <MainLayout>
@@ -11,8 +29,8 @@ export default function Dashboard() {
           <div className="d-flex justify-content-between fw9-balance flex-column flex-lg-row">
             <div>
               <h5 className="text-dark">Balance</h5>
-              <h1 className="text-dark">Rp </h1>
-              <p className="text-dark">082</p>
+              <h1 className="text-dark">Rp {data.balance || '0'}</h1>
+              <p className="text-dark">{data.noTelp}</p>
             </div>
             <div className="d-flex flex-column gap-3">
               <button type="button" className="btn btn-dark text-light fw9-transaction">
