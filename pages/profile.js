@@ -33,23 +33,23 @@ export default function Profile() {
           <button type="button" id="leftbutton" className="button-fw9">
             Edit
           </button>
-          <div class="mx-auto">
-            <h3 class="text-center fw9-fullname">
+          <div className="mx-auto">
+            <h3 className="text-center fw9-fullname">
               {data.firstName} {data.lastName}
             </h3>
-            <p class="text-center fw9-phone">{data.noTelp}</p>
+            <p className="text-center fw9-phone">{data.noTelp}</p>
           </div>
-          <div class="d-flex flex-column align-items-center gap-3 mt-5">
-            <Card className="col-12 rounded-3 card-profile" onClick={() => router.push('/dashboard')}>
+          <div className="d-flex flex-column align-items-center gap-3 mt-5">
+            <Card className="col-10 rounded-3 card-profile" onClick={() => router.push('/personal-info')}>
               <Card.Body>Personal Information</Card.Body>
             </Card>
-            <Card className="col-12 rounded-3 card-profile" onClick={() => router.push('/dashboard')}>
+            <Card className="col-10 rounded-3 card-profile" onClick={() => router.push('/dashboard')}>
               <Card.Body>Change Password</Card.Body>
             </Card>
-            <Card className="col-12 rounded-3 card-profile" onClick={() => router.push('/dashboard')}>
+            <Card className="col-10 rounded-3 card-profile" onClick={() => router.push('/dashboard')}>
               <Card.Body>Change PIN</Card.Body>
             </Card>
-            <Card className="col-12 rounded-3 card-profile" onClick={() => router.push('/dashboard')}>
+            <Card className="col-10 rounded-3 card-profile" onClick={() => router.push('/dashboard')}>
               <Card.Body>Logout</Card.Body>
             </Card>
           </div>

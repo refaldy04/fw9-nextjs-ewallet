@@ -188,7 +188,7 @@ footer {
 
 /* START PROFILE PAGE */
 .profile-page {
-  padding: 50px 200px;
+  padding: 50px 120px;
   box-shadow: 0px 20px 20px rgba(0, 0, 0, 0.05);
 }
 
@@ -203,6 +203,17 @@ footer {
   cursor: pointer;
 }
 /* END PROFILE PAGE */
+
+/* START PERSONAL INFO */
+.personal-info {
+  padding: 50px 30px;
+  box-shadow: 0px 20px 20px rgba(0, 0, 0, 0.05);
+}
+
+.card-pesonal-info {
+  box-shadow: 0px 20px 20px rgba(0, 0, 0, 0.05);
+}
+/* END PERSONAL INFO */
 
 @media only screen and (max-width: 768px) {
   html {
