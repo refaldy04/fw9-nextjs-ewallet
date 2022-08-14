@@ -4,7 +4,8 @@ import MainLayout from '../components/Main';
 import Cookies from 'js-cookie';
 import axios from '../helpers/axios';
 import { useRouter } from 'next/router';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import { transferData } from '../stores/actions/user';
 
 export default function InputAmount() {
   const [dataRecipient, setDataRecipient] = useState([]);
@@ -34,14 +35,14 @@ export default function InputAmount() {
   };
 
   const router = useRouter();
-
-  const dataTransfer = useSelector((state) => state.user.dataTransfer);
+  const user = useSelector((state) => state.user);
+  const dispatch = useDispatch();
 
   const handleSubmit = async () => {
     try {
       console.log(form);
-      dataTransfer = form;
-      console.log(dataTransfer);
+      dispatch(transferData(form));
+      // console.log(user.transferData);
       router.push('/confirmation');
     } catch (error) {
       console.log(error);

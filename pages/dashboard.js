@@ -3,6 +3,7 @@ import MainLayout from '../components/Main';
 import Link from 'next/link';
 import { SSRProvider } from 'react-bootstrap';
 import axios from '../helpers/axios';
+import Cookies from 'js-cookie';
 
 export default function Dashboard() {
   const [data, setData] = useState([]);
@@ -66,8 +67,6 @@ export default function Dashboard() {
                   See all
                 </Link>
               </div>
-
-              {/* <Card /> */}
             </div>
           </div>
         </div>
