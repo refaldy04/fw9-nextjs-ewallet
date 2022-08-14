@@ -63,7 +63,7 @@ export default function Dashboard() {
             <div className="d-flex flex-column col-lg-5 rounded fw9-transaction-history">
               <div className="d-flex flex-row justify-content-between">
                 <p>Transaction History</p>
-                <Link href="/history" className="text-dark">
+                <Link href="/transaction-history" className="text-dark">
                   See all
                 </Link>
               </div>
