@@ -26,7 +26,7 @@ export default function TransactionHistory() {
     <SSRProvider>
       <MainLayout>
         <div className="col-12 mt-5 mt-lg-0 d-flex flex-column gap-4 rounded-4 status-success">
-          <div className="d-flex flex-row justify-content-between">
+          <div className="d-flex flex-column flex-lg-row justify-content-between mb-3">
             <h5>Transaction History</h5>
             <Dropdown>
               <Dropdown.Toggle variant="dark" id="dropdown-basic">
@@ -41,7 +41,7 @@ export default function TransactionHistory() {
             </Dropdown>
           </div>
           {data.map((user) => (
-            <div className="d-flex justify-content-between" key={user.id}>
+            <div className="d-flex flex-column flex-lg-row justify-content-between" key={user.id}>
               <div className="d-flex gap-2">
                 <img src={user.image ? `https://res.cloudinary.com/dd1uwz8eu/image/upload/v1659549135/${user.image}` : '/user-default.jpg'} alt="user" className="fw9-profile-pict" />
                 <div>

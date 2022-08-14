@@ -186,6 +186,24 @@ footer {
 }
 /* END SUCCESS PAGE */
 
+/* START PROFILE PAGE */
+.profile-page {
+  padding: 50px 200px;
+  box-shadow: 0px 20px 20px rgba(0, 0, 0, 0.05);
+}
+
+.main-profile-pict {
+  width: 80px;
+  height: 80px;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+.card-profile {
+  cursor: pointer;
+}
+/* END PROFILE PAGE */
+
 @media only screen and (max-width: 768px) {
   html {
     color-scheme: dark;
@@ -200,6 +218,11 @@ footer {
 
   .pages {
     padding: 40px 20px;
+  }
+
+  .profile-page {
+    padding: 30px 30px;
+    box-shadow: 0px 20px 20px rgba(0, 0, 0, 0.05);
   }
 
   footer {
