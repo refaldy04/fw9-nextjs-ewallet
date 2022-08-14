@@ -27,19 +27,24 @@ function MydModalWithGrid(props) {
       const data = { pin: Object.values(form).join('') };
 
       const result = await axios.get(`user/pin?pin=${data.pin}`);
-      // console.log(result);
+      console.log(result);
 
       const reqTransfer = { receiverId: Cookies.get('recipientID'), amount: parseInt(user.transferData.amount), notes: user.transferData.notes };
 
       console.log(reqTransfer);
       if (result.status == 200) {
-        await axios.post(`/transaction/transfer`, reqTransfer);
-        router.push('/success');
+        const transfer = await axios.post(`/transaction/transfer`, reqTransfer);
+        console.log(transfer);
+        if (transfer.status == 200) {
+          router.push('/success');
+        } else {
+          router.push('/failed');
+        }
       } else {
         router.push('/failed');
       }
     } catch (error) {
-      console.log(error);
+      router.push('/failed');
     }
   };
   return (

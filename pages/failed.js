@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import MainLayout from '../components/Main';
 import { SSRProvider } from 'react-bootstrap';
 import { IconContext } from 'react-icons';
-import { FiDownload, FiShare2, FiCheck } from 'react-icons/fi';
+import { FiX } from 'react-icons/fi';
 import { useRouter } from 'next/router';
 import { useSelector } from 'react-redux';
 import axios from '../helpers/axios';
@@ -41,11 +41,11 @@ export default function Success() {
         <div className="col-12 mt-5 mt-lg-0 d-flex flex-column gap-4 rounded-4 status-success">
           <div className="rounded-circle d-flex justify-content-center align-items-center bg-dark p-3 mx-auto">
             <IconContext.Provider value={{ size: '2em', color: 'white' }}>
-              <FiCheck className="fw-bold" />
+              <FiX className="fw-bold" />
             </IconContext.Provider>
           </div>
 
-          <p className="fw9-text-status mx-auto">Transfer Success</p>
+          <p className="fw9-text-status mx-auto">Transfer Failed</p>
 
           <div className="d-flex align-items-start gap-2 fw9-detail">
             <div className="d-flex flex-column justify-content-between">
@@ -86,11 +86,8 @@ export default function Success() {
           </div>
 
           <div className="d-flex flex-column flex-lg-row justify-content-end gap-3 mt-5">
-            <button type="button" className="btn btn-dark fw-bold d-flex align-items-center">
-              {<FiDownload />} Download PDF
-            </button>
-            <button onClick={() => router.push('/dashboard')} type="button" className="btn btn-dark fw-bold text-light d-flex align-items-center">
-              Back to Home
+            <button onClick={() => router.push('/confirmation')} type="button" className="btn btn-dark fw-bold text-light d-flex align-items-center">
+              Try Again
             </button>
           </div>
         </div>
