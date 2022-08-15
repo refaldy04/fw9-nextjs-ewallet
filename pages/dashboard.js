@@ -7,6 +7,7 @@ import Cookies from 'js-cookie';
 
 export default function Dashboard() {
   const [data, setData] = useState([]);
+  const [transaction, setTransaction] = useState([]);
 
   useEffect(() => {
     getDataUser();
@@ -16,8 +17,9 @@ export default function Dashboard() {
     try {
       const user = Cookies.get('id');
       const result = await axios.get(`user/profile/${user}`);
+      const history = await axios.get(`transaction/history?page=1&limit=4&filter=MONTH`);
       setData(result.data.data);
-      console.log(result);
+      setTransaction(history.data.data);
     } catch (error) {
       console.log(error);
     }
@@ -67,6 +69,20 @@ export default function Dashboard() {
                   See all
                 </Link>
               </div>
+              {transaction.map((user) => (
+                <div key={user.id} className="d-flex flex-column mt-4">
+                  <div className="d-flex align-items-start justify-content-between flex-column flex-md-row">
+                    <div className="d-flex align-items-start gap-2">
+                      <img src={user.image ? `https://res.cloudinary.com/dd1uwz8eu/image/upload/v1659549135/${user.image}` : '/user-default.jpg'} alt="user" className="img-fluid fw9-profile-pict" />
+                      <div className="d-flex flex-column justify-content-between">
+                        <h5>{user.firstName}</h5>
+                        <p>{user.type}</p>
+                      </div>
+                    </div>
+                    <h5>{user.amount}</h5>
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
         </div>

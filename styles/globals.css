@@ -555,10 +555,10 @@ a.link-dasboard {
 }
 
 .fw9-profile-pict {
-  width: 52px;
-  height: 52px;
-  border-radius: 10px;
-  object-fit: cover;
+  width: 52px !important;
+  height: 52px !important;
+  border-radius: 10px !important;
+  object-fit: cover !important;
 }
 
 .fw-form {

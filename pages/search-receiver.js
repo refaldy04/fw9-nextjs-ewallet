@@ -13,7 +13,6 @@ import { FiDownload, FiShare2 } from 'react-icons/fi';
 export default function Transfer() {
   const [data, setData] = useState([]);
   const [form, setForm] = useState({ keyword: '' });
-  
 
   const handleChangeText = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
