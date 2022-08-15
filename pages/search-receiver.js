@@ -7,6 +7,8 @@ import InputGroup from 'react-bootstrap/InputGroup';
 import axios from '../helpers/axios';
 import Cookies from 'js-cookie';
 import { useRouter } from 'next/router';
+import { IconContext } from 'react-icons';
+import { FiDownload, FiShare2 } from 'react-icons/fi';
 
 export default function Transfer() {
   const [data, setData] = useState([]);

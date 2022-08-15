@@ -30,9 +30,7 @@ export default function Profile() {
       <MainLayout>
         <div className="col-12 mt-5 mt-lg-0 d-flex flex-column gap-2 rounded-4 status-success profile-page">
           <img src={data.image ? `https://res.cloudinary.com/dd1uwz8eu/image/upload/v1659549135/${data.image}` : '/user-default.jpg'} alt="" className="main-profile-pict mx-auto" />
-          <button type="button" id="leftbutton" className="button-fw9">
-            Edit
-          </button>
+          <button className="button-fw9">Edit</button>
           <div className="mx-auto">
             <h3 className="text-center fw9-fullname">
               {data.firstName} {data.lastName}
@@ -43,7 +41,7 @@ export default function Profile() {
             <Card className="col-10 rounded-3 card-profile" onClick={() => router.push('/personal-info')}>
               <Card.Body>Personal Information</Card.Body>
             </Card>
-            <Card className="col-10 rounded-3 card-profile" onClick={() => router.push('/dashboard')}>
+            <Card className="col-10 rounded-3 card-profile" onClick={() => router.push('/change-password')}>
               <Card.Body>Change Password</Card.Body>
             </Card>
             <Card className="col-10 rounded-3 card-profile" onClick={() => router.push('/dashboard')}>
