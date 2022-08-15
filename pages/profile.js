@@ -44,7 +44,7 @@ export default function Profile() {
             <Card className="col-10 rounded-3 card-profile" onClick={() => router.push('/change-password')}>
               <Card.Body>Change Password</Card.Body>
             </Card>
-            <Card className="col-10 rounded-3 card-profile" onClick={() => router.push('/dashboard')}>
+            <Card className="col-10 rounded-3 card-profile" onClick={() => router.push('/current-pin')}>
               <Card.Body>Change PIN</Card.Body>
             </Card>
             <Card className="col-10 rounded-3 card-profile" onClick={() => router.push('/dashboard')}>
