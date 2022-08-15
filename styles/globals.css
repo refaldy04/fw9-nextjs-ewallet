@@ -8,8 +8,9 @@ body {
 }
 
 a {
-  color: inherit;
+  color: unset !important;
   text-decoration: none !important;
+  cursor: pointer !important;
 }
 
 * {
@@ -537,6 +538,10 @@ footer div div p:first-child {
   cursor: pointer;
   border: unset;
   background-color: transparent;
+}
+
+a.link-dasboard {
+  cursor: pointer !important;
 }
 
 .intro {

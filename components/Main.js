@@ -36,16 +36,16 @@ export default function MainLayout(props) {
       <div className="row pages">
         <div className="col-lg-2 flex-column justify-content-between align-items-center fw9-menu-list d-none d-lg-flex">
           <div className="d-flex flex-column gap-5">
-            <Link href="/dashboard" className="d-flex gap-4 fw9-semibold">
+            <Link href="/dashboard" className="d-flex gap-4 link-dasboard">
               <p className="fw9-menu">Dashboard</p>
             </Link>
-            <Link href="/search-receiver" className="d-flex gap-4">
+            <Link href="/search-receiver" className="d-flex gap-4 link-dasboard">
               <p className="fw9-menu">Transfer</p>
             </Link>
-            <Link href="/top-up" className="d-flex gap-4">
+            <Link href="/top-up" className="d-flex gap-4 link-dasboard">
               <p className="fw9-menu">Top Up</p>
             </Link>
-            <Link href="/profile" className="d-flex gap-4">
+            <Link href="/profile" className="d-flex gap-4 link-dasboard">
               <p className="fw9-menu">Profile</p>
             </Link>
           </div>
