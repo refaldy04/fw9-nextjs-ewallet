@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import Head from 'next/head';
 import Navbar from './microComponents/Navbar';
@@ -6,8 +6,54 @@ import Cookies from 'js-cookie';
 import DropdownMenu from './microComponents/Dropdown';
 import Link from 'next/link';
 import Footer from './microComponents/Footer';
+import Button from 'react-bootstrap/Button';
+import Col from 'react-bootstrap/Col';
+import Container from 'react-bootstrap/Container';
+import Modal from 'react-bootstrap/Modal';
+import Row from 'react-bootstrap/Row';
+import axios from '../helpers/axios';
+
+function MydModalWithGrid(props) {
+  const [form, setForm] = useState({ amount: '' });
+
+  const handleChangeText = (e) => {
+    setForm({ ...form, [e.target.name]: e.target.value });
+  };
+  const handleSubmit = async () => {
+    try {
+      console.log(form);
+      const result = await axios.post('transaction/top-up', form);
+      window.open(result.data.data.redirectUrl);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  return (
+    <Modal {...props} aria-labelledby="contained-modal-title-vcenter">
+      <Modal.Header closeButton>
+        <Modal.Title id="contained-modal-title-vcenter">Topup</Modal.Title>
+      </Modal.Header>
+      <Modal.Body className="show-grid">
+        <Container>
+          <p>Enter the amount of money, and click submit</p>
+          <Row className="my-5">
+            <Col xs={12} md={8} className="d-flex justify-content-center mx-auto">
+              <input type="text" name="amount" className="mx-auto text-center" onChange={handleChangeText} />
+            </Col>
+          </Row>
+        </Container>
+      </Modal.Body>
+      <Modal.Footer>
+        <Button onClick={handleSubmit} variant="dark" className="text-light">
+          Submit
+        </Button>
+      </Modal.Footer>
+    </Modal>
+  );
+}
 
 export default function MainLayout(props) {
+  const [modalShow, setModalShow] = useState(false);
   const router = useRouter();
   useEffect(() => {
     checkToken();
@@ -42,9 +88,11 @@ export default function MainLayout(props) {
             <Link href="/search-receiver" className="d-flex gap-4 link-dasboard">
               <p className="fw9-menu">Transfer</p>
             </Link>
-            <Link href="/top-up" className="d-flex gap-4 link-dasboard">
-              <p className="fw9-menu">Top Up</p>
-            </Link>
+            <button className="button-fw9 fw-normal text-start p-0 fw9-menu" onClick={() => setModalShow(true)}>
+              Top Up
+            </button>
+
+            <MydModalWithGrid show={modalShow} onHide={() => setModalShow(false)} />
             <Link href="/profile" className="d-flex gap-4 link-dasboard">
               <p className="fw9-menu">Profile</p>
             </Link>

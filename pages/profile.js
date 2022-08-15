@@ -8,6 +8,11 @@ import { useRouter } from 'next/router';
 
 export default function Profile() {
   const [data, setData] = useState([]);
+  const [form, setForm] = useState('');
+
+  const handleChangeText = (e) => {
+    setForm({ ...form, [e.target.name]: e.target.value });
+  };
 
   const router = useRouter();
 
@@ -25,12 +30,25 @@ export default function Profile() {
   useEffect(() => {
     getDataUser();
   }, []);
+
+  const handleSubmit = async () => {
+    try {
+      console.log(form);
+    } catch (error) {
+      console.log(error);
+    }
+  };
   return (
     <SSRProvider>
       <MainLayout>
         <div className="col-12 mt-5 mt-lg-0 d-flex flex-column gap-2 rounded-4 status-success profile-page">
           <img src={data.image ? `https://res.cloudinary.com/dd1uwz8eu/image/upload/v1659549135/${data.image}` : '/user-default.jpg'} alt="" className="main-profile-pict mx-auto" />
-          <button className="button-fw9">Edit</button>
+          <button className="button-fw9">
+            <input type="file" className="image-input" name="image" onChange={handleChangeText} />
+          </button>
+
+          <button type="submit" onClick={handleSubmit}></button>
+
           <div className="mx-auto">
             <h3 className="text-center fw9-fullname">
               {data.firstName} {data.lastName}

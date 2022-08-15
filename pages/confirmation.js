@@ -34,12 +34,8 @@ function MydModalWithGrid(props) {
       console.log(reqTransfer);
       if (result.status == 200) {
         const transfer = await axios.post(`/transaction/transfer`, reqTransfer);
+        router.push('/success');
         console.log(transfer);
-        if (transfer.status == 200) {
-          router.push('/success');
-        } else {
-          router.push('/failed');
-        }
       } else {
         router.push('/failed');
       }
