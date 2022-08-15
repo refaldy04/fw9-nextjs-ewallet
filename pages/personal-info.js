@@ -46,7 +46,7 @@ export default function PersonalInfo() {
                 <p className="key">Phone Number</p>
                 <h5 className="value">{data.noTelp}</h5>
               </div>
-              <Link href="/manage-phone-number">Manage</Link>
+              <Link href="/edit-phone">Manage</Link>
             </div>
           </div>
         </div>
